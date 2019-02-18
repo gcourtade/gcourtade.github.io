@@ -2,6 +2,7 @@
 layout: post
 title:  New paper – Cellulose oxidation by a modular LPMO
 category: All 
+excerpt: Our latest paper “The carbohydrate-binding module and linker of a modular lytic polysaccharide monooxygenase promote localized cellulose oxidation” was finally published on the 24th of August on [JBC](http://www.jbc.org/content/early/2018/07/02/jbc.RA118.004269.abstract).
 ---
 
 Our latest paper “The carbohydrate-binding module and linker of a modular lytic polysaccharide monooxygenase promote localized cellulose oxidation” was finally published on the 24th of August on [JBC](http://www.jbc.org/content/early/2018/07/02/jbc.RA118.004269.abstract). 
