@@ -24,7 +24,7 @@ kramdown:
 # Third-party services
 # just leave someone empty to disable it
 # google_analytics: 
-disqus_shortname:
+disqus_shortname: gcourtade
 
 # used this for post_excerpt at index_page
 excerpt_separator: <!--description-->
