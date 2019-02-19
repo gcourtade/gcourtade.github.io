@@ -15,4 +15,5 @@ During these scientific pursuits, I've  stumbled upon interesting and fun to sol
 
 -----------------------
 
-{:.center}[Google Scholar](https://scholar.google.no/citations?hl=no&user=rW-9FtYAAAAJ&view_op=list_works) | [Twitter](https://twitter.com/GastonC_NMR) | [Contact me](https://www.ntnu.edu/employees/gaston.courtade)
+{:.center}
+[Google Scholar](https://scholar.google.no/citations?hl=no&user=rW-9FtYAAAAJ&view_op=list_works) | [Twitter](https://twitter.com/GastonC_NMR) | [Contact me](https://www.ntnu.edu/employees/gaston.courtade)
