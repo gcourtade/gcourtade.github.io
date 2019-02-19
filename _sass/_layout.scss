@@ -219,12 +219,12 @@ p.readmore {
 }
 
 .article-content a {
-  border-bottom:1px dotted red;
+  border-bottom:1px dotted #3399ff;
   text-decoration:none;
 }
 .article-content a:hover {
-  color:red;
-  border-bottom:1px dotted red;
+  color:#3399ff;
+  border-bottom:1px dotted #3399ff;
 }
 
 .article-footer {
@@ -306,12 +306,23 @@ p.readmore {
   }
 }
 
+
+
 .right {
   text-align:center;
 
   @media (min-width: $on-laptop) {
     text-align:right;
   }
+a {
+      color: #666;
+      border-bottom:1px dotted;
+      text-decoration:none;
+    }
+    a:hover {
+      color:red;
+      border-bottom:1px dotted;
+    }  
 
 }
 

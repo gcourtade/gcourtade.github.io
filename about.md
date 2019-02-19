@@ -12,6 +12,3 @@ During my master's and PhD, I worked with a family of enzymes known as lytic pol
 Currently, I am working on studying multi-domain LPMOs to try to understand the interplay between the catalytic domain, the carbohydrate-binding module and the linker region.
 
 During these scientific pursuits, I've  stumbled upon interesting and fun to solve technical challenges that rarely come out to light as part of a paper. The aim of this blog is thus to show both the science and the troubles behind it.
-
------------------------
-[Google Scholar](https://scholar.google.no/citations?hl=no&user=rW-9FtYAAAAJ&view_op=list_works) | [Twitter](https://twitter.com/GastonC_NMR) | [Contact me](https://www.ntnu.edu/employees/gaston.courtade)

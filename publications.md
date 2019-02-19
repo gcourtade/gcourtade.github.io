@@ -3,7 +3,7 @@ layout: page
 title: Publications
 permalink: /publications/
 ---
-#### These are my publications in peer-reviewed journals. And here's my [Google Scholar profile](https://scholar.google.no/citations?hl=no&user=rW-9FtYAAAAJ&view_op=list_works). Feel free to [contact me](https://www.ntnu.edu/employees/gaston.courtade) if you can't get the full-text you want.
+These are my publications in peer-reviewed journals. And here's my [Google Scholar profile](https://scholar.google.no/citations?hl=no&user=rW-9FtYAAAAJ&view_op=list_works). Feel free to [contact me](https://www.ntnu.edu/employees/gaston.courtade) if you can't get the full-text you want.
 
 ### 2018
 Yoshihito Kitaoku, **Gaston Courtade**, Dejan M Petrović, Tamo Fukamizo, Vincent GH Eijsink, Finn L Aachmann. (2018). [Resonance assignments for the *apo*-form of the cellulose-active lytic polysaccharide monooxygenase *Ta*LPMO9A](https://link.springer.com/article/10.1007/s12104-018-9839-y). *Biomolecular NMR Assignments* (12) 357-361. 
