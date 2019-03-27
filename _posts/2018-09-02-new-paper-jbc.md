@@ -35,4 +35,4 @@ This is our model to explain how modular LPMOs work. It can be summarized in the
 ![]({{site.baseurl}}/assets/img/tether_lpmo.png)
 
 
-#### <ins>Disclaimer:</ins> Even though I’ve used the word “anchor” to describe the behavior of the CBM-module, this is not entirely accurate. The CBM binds very tightly to the cellulose surface, but is never fully fixed on one place on the cellulose and we still don’t know whether it might displace after a few reactions have taken place.*
+#### <ins>Disclaimer:</ins> Even though I’ve used the word “anchor” to describe the behavior of the CBM-module, this is not entirely accurate. The CBM binds very tightly to the cellulose surface, but is never fully fixed on one place on the cellulose and we still don’t know whether it might displace after a few reactions have taken place.
