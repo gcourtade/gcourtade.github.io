@@ -1,0 +1,52 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<channel>
+<atom:link href="http://readms.net/rss" rel="self" type="application/rss+xml"/>
+<title>MangaStream Releases</title>
+<link>http://readms.net/rss</link>
+<description>The latest MangaStream.com Releases</description>
+<language>en</language>
+<ttl>30</ttl>
+<item>
+<title>325 - Those Who Fight Back</title>
+<link>https://readms.net/r/the_seven_deadly_sins/325/6151/1</link>
+<pubDate>Fri, 13 Sep 2019 10:02:13 -0700</pubDate>
+<description>325 - Those Who Fight Back</description>
+<guid isPermaLink="true">https://readms.net/r/the_seven_deadly_sins/325/6151/1</guid>
+</item>
+<item>
+<title>324 - Brothers' Promise</title>
+<link>https://readms.net/r/the_seven_deadly_sins/324/6135/1</link>
+<pubDate>Fri, 13 Sep 2019 10:02:13 -0700</pubDate>
+<description>324 - Brothers' Promise</description>
+<guid isPermaLink="true">https://readms.net/r/the_seven_deadly_sins/324/6135/1</guid>
+</item>
+<item>
+<title>323 - I Am Here</title>
+<link>https://readms.net/r/the_seven_deadly_sins/323/6118/1</link>
+<pubDate>Fri, 13 Sep 2019 10:02:13 -0700</pubDate>
+<description>323 - I Am Here</description>
+<guid isPermaLink="true">https://readms.net/r/the_seven_deadly_sins/323/6118/1</guid>
+</item>
+<item>
+<title>322 - The Voice That Calls Your Name</title>
+<link>https://readms.net/r/the_seven_deadly_sins/322/6103/1</link>
+<pubDate>Fri, 13 Sep 2019 10:02:13 -0700</pubDate>
+<description>322 - The Voice That Calls Your Name</description>
+<guid isPermaLink="true">https://readms.net/r/the_seven_deadly_sins/322/6103/1</guid>
+</item>
+<item>
+<title>Side Story: - The Doll Asks for Love</title>
+<link>https://readms.net/r/the_seven_deadly_sins/Side%20Story%3A/4134/1</link>
+<pubDate>Fri, 13 Sep 2019 10:02:13 -0700</pubDate>
+<description>Side Story: - The Doll Asks for Love</description>
+<guid isPermaLink="true">https://readms.net/r/the_seven_deadly_sins/Side%20Story%3A/4134/1</guid>
+</item>
+<item>
+<title>Special - Sins on Vacation</title>
+<link>https://readms.net/r/the_seven_deadly_sins/Special/3546/1</link>
+<pubDate>Fri, 13 Sep 2019 10:02:13 -0700</pubDate>
+<description>Special - Sins on Vacation</description>
+<guid isPermaLink="true">https://readms.net/r/the_seven_deadly_sins/Special/3546/1</guid>
+</item>
+</channel>
+</rss>
