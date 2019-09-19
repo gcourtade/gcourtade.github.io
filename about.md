@@ -3,7 +3,7 @@ layout: page
 title: About
 permalink: /about/
 ---
-This is my personal blog.
+Welcome to my personal blog!
 
 My main research interest is using NMR and simulations to gain a better understanding of how proteins work. 
 
