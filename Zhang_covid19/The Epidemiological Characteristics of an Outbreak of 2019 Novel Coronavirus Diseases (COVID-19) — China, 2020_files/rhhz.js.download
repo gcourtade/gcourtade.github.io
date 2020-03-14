@@ -1,0 +1,315 @@
+
+
++function ($) {
+	 
+	var subTextDefaluts = {
+		add_title:true,      
+        trim:true, 
+        content_type:'html', 
+        keep_len:10 
+	};
+	
+	 
+	var menuDefaults = {
+		defaultPage:'index',			 
+		pageViewId:'pageViewId',		 
+		hightLightTag:'li',				 
+		highLightClass:'current',		 
+		pageRelAttr:'rel_page',			 
+		pageRelTag:'li span'			
+	}
+	
+	$.fn.subTextMax = function(options) {
+		var opts = $.extend({}, subTextDefaluts, options); 
+		return this.each(function(){
+		var keepindex = parseInt($(this).attr("keep_len") == undefined ? opts.keep_len : $(this).attr("keep_len")); 
+		var contentHtml = $(this).html().replace(/\t|\r|\n/g,"").replace(/<br[ ]*[/]{0,1}>/g,"<br/>").trim();
+		var contentText = $(this).text().replace(/\t|\r|\n/g,"").trim();
+		if(contentText.length > keepindex){
+	        
+		   if(opts.add_title){
+			   if($(this).attr("title")==''||$(this).attr("title") == undefined){
+				   $(this).attr("title",contentText);
+		      }
+		    }
+		    contentText = contentText.substr(0,keepindex);
+		    if(opts.content_type == 'text'){
+		        $(this).html(contentText + "...");
+		    }else{
+		         
+		        var rgx = /<[^<^>]+>/;  
+		        var index = 0;
+		        var tags = new Array();
+		        while(rgx.test(contentHtml)){
+		            var t = new Object();
+		            
+		            t.index = index + contentHtml.search(rgx);
+		            
+		            t.tag = contentHtml.match(rgx).toString();
+		            
+		            var len = contentHtml.search(/<[^<^>]+>/) + contentHtml.match(/<[^<^>]+>/)[0].length;
+		            contentHtml = contentHtml.substr(len);
+		            index += len;
+		            tags.push(t);
+		        }
+		        
+		        if(tags.length > 0){
+		            $.each(tags,function(i,e){
+		                if(e.index > contentText.length){
+		                
+		                tags = tags.slice(0,i);
+		                return false;
+		                }else{
+		            
+		                contentText = contentText.substr(0,e.index) + e.tag + contentText.substr(e.index,contentText.length);
+		                }
+		            })
+		        }
+		          var insertTags = new Array(); 
+		        var uncloseTags = new Array(); 
+		        if(tags.length > 0){
+		            $.each(tags,function(i,e){
+		             
+		            uncloseTags.push(e.tag);
+		            insertTags.push(e.tag);
+		            })
+		            $.each(insertTags,function(i,e){
+		                
+		                if(/<[^<^>^\/]+\/>/.test(e)){
+		                    uncloseTags.splice($.inArray(e,uncloseTags),1);
+		                    return true;
+		                }
+		                  if(/<[^<^>^\/]+>/.test(e)){
+		                    var tagClosed = "";
+		                       if(e.indexOf(" ") > 0){
+		                        tagClosed = "</" + e.substring(1, e.indexOf(" ")) + ">";
+		                    }else{
+		                        tagClosed = "</" + e.substring(1, e.length);
+		                    }
+		                     if($.inArray(tagClosed,uncloseTags) != -1){
+		                        uncloseTags.splice($.inArray(e,uncloseTags),1);
+		                        uncloseTags.splice($.inArray(tagClosed,uncloseTags),1);
+		                       }
+		                }
+		            })
+		        }
+		        if(uncloseTags.length > 0){
+		            var closeTagStr = "";
+		            uncloseTags.reverse();
+		            $.each(uncloseTags,function(i,e){
+		                if(e.indexOf(" ") > 0){
+		                    closeTagStr += "</" + e.substring(1, e.indexOf(" ")) + ">";
+		                }else{
+		                    closeTagStr += "</" + e.substring(1, e.length);
+		                }
+		            })
+		            contentText += "..." + closeTagStr;
+		        }else{
+		            contentText += "...";
+		        }
+		       
+		        $(this).html(contentText);
+	       	}
+	        
+    		}
+	    })
+   }
+}(jQuery);
+
+ 
+String.prototype.endWith = function(s) {
+	if (s == null || s == "" || this.length == 0 || s.length > this.length)
+		return false;
+	if (this.substring(this.length - s.length) == s)
+		return true;
+	else
+		return false;
+	return true;
+}
+
+ 
+String.prototype.startWith = function(s) {
+	if (s == null || s == "" || this.length == 0 || s.length > this.length)
+		return false;
+	if (this.substr(0, s.length) == s)
+		return true;
+	else
+		return false;
+	return true;
+}
+
+/**
+ *  
+ * @return
+ */
+String.prototype.trim=function(){
+  	return this.replace(/(^\s*)|(\s*$)/g, "");
+}
+/**
+ *  
+ * @param name
+ * @return
+ */
+function getUrlParam(name){
+     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+     var r = window.location.search.substr(1).match(reg);
+     if(r!=null)return  unescape(r[2]); return null;
+	//return $("#language").val();
+}
+
+/**
+ *  
+ * 支持格式"[1,3,5-8,11,13-18,19]"
+ * @param refSup
+ * @return
+ */
+function getRefSupIndex(refSup){
+	if(!isNull(refSup)){
+		refSup = refSup.replace(/[\[|\]]/g, '').trim();
+		var chars = ['~','—','–','，','-','−'];
+		$.each(chars,function(ind,val){
+			refSup = refSup.replace(val,'&');
+		});
+		var refIndexs = [] ;
+		$.each(refSup.split(","),function(i,e){
+			if(isNaN(e)){
+				var startEnd = e.split("&");
+				var start = parseInt(startEnd[0]);
+				var end = parseInt(startEnd[1]);
+				for(var i = start ; i <= end ; i++){
+					refIndexs.push(i);
+				}
+			}else{
+				refIndexs.push(e);
+			}
+		})
+		//alert(refIndexs);
+		return refIndexs;
+	}
+	return null;
+}
+
+/**
+ *  
+ * @param object
+ * @return
+ */
+function isNull(object){
+	return typeof(object) == "undefined" || object == null || object == ""; 
+}
+
+/**
+ *  
+ * @param Min
+ * @param Max
+ * @return
+ */
+function GetRandomNum(Min,Max){   
+	var Range = Max - Min;   
+	var Rand = Math.random();   
+	return(Min + Math.round(Rand * Range));   
+} 
+
+ 
+function dateStr(type){
+	var date = new Date();
+	return parseInt(type) == 1 ? 
+		formatDate(date,type) + " "+ getTodayWeek(type) : 
+		getTodayWeek(type) + ", " +formatDate(date,type)  ;
+}
+
+
+/**
+ * 
+ * 2017-1-11
+ * 11 January, 2017
+ * Jan 11, 2017
+ * @param date
+ * */
+function formatDate(date,type){
+	if(!isNull(date)){
+		var dateStr = JSON.stringify(date).substring(1,11);
+		var dateVal = dateStr.split("-");
+		var month = dateVal[1];
+		if(month.charAt(0)== 0){month = month.charAt(1);}
+		var monthArray = new Array
+        ("January","February","March","April","May","June","July","August",
+        "September","October","November","December");
+		var monthArraySimple = new Array
+        ("Jan","Feb","Mar","Apr","May","June","July","Aug",
+        "Sep","Oct","Nov","Dec");
+        switch (type) { 
+		    case 1 : 
+	            return dateStr;
+		    case 2 : 
+		    	return dateVal[2]+" "+monthArray[month-1]+", "+dateVal[0];
+		    case 3 : 
+		    	return monthArraySimple[month-1]+" "+dateVal[2]+", "+dateVal[0];
+		}
+ 	}
+}
+ 
+function getTodayWeek(type){
+	var chinese = new Array("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六");  
+	var english = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");  
+	var englishSigle = new Array("Sun.","Mon.", "Tues.", "Wed.", "Thur.", "Fri.", "Sat.");  
+	var week = new Date().getDay(); 
+	switch (type) { 
+	    case 1 : 
+            return chinese[week];
+	    case 2 : 
+	    	return english[week];
+	    case 3 : 
+	    	return englishSigle[week];
+	}  
+}
+
+/**
+ *  
+ * @param type
+ * @return
+ */
+function shareTools(type,obj){
+	var url = window.location;
+	var title = $("title").text();
+	var description = $("meta[name='abstract']").attr("content") || $("meta[name='description']").attr("content") || $("meta[name='dc.description']").attr("content") || $("meta[http-equiv='description']").attr("content");
+	var shareUrl = "";
+	switch (type)
+	{
+		case 'qzone':
+			shareUrl = "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url="+url+"&title="+title;
+			break;
+		case 'sina':
+			shareUrl = "http://service.weibo.com/share/share.php?title="+title+"&url="+url+"&pic=";
+			break;
+		case 'weixin':
+			shareUrl = local_host + "util/QrcodeServlet?url="+url;
+			break;
+		case 'renren':
+			shareUrl = "http://widget.renren.com/dialog/share?resourceUrl="+url+"&srcUrl="+url+"&title="+title+"&pic=&description="+description;
+			break;
+		case 'google+':
+			shareUrl = "https://plus.google.com/share?url="+url+"&t="+title;
+			break;
+		case 'facebook':
+			shareUrl = "http://www.facebook.com/sharer.php?s=100&p[title]="+title+"&p[summary]="+description+"&p[url]="+url+"&p[images]=";
+			break;
+		case 'linkedin':
+			shareUrl = "http://www.linkedin.com/shareArticle?armin=armin&ro=true&mini=true&url="+url+"&source=&title="+title+"&summary="+description;
+			break;
+		case 'twitter':
+			shareUrl = "https://twitter.com/intent/tweet?text="+title+"&url="+url;
+			break;
+		default:
+			shareUrl = "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url="+url+"&title="+title;
+			break;
+	}
+	if("weixin" == type){
+		$(".weixinQrcode").attr("src",shareUrl);
+	}else{
+		window.open(shareUrl, "_blank");
+	}
+}
+function closeWeiXinBox(obj){
+	$(obj).parent().hide();
+}
